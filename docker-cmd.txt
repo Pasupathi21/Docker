@@ -20,3 +20,16 @@ Run JS file from Docker image: docker run <tage-name>
 -------------------------------------------------------
 Pull image from docker hub and store the local machine
     cmd: docker pull <repository-name>/<image-container-name>
+
+
+-----------------------------------------------------------------
+cmd: docker run ubuntu --> This command helps to install images locally and run the image
+
+-----------------------------------------------------------------
+cmd: docker ps --> shows the running process and container
+
+-----------------------------------------------------------------
+cmd: docker ps -a ------> It shows stopped containers also
+
+-----------------------------------------------------------------
+cmd: docker run -it ubuntu ---> (-it) This means interative mode it execute the Ubuntu CLI
