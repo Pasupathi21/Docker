@@ -1,0 +1,22 @@
+
+Default docker file name without extension: Dockerfile
+
+Lesson 10:
+Docker commands
+
+-------------------------------------------
+Create docker file:   docker build -t <tage-name> .
+    * -t ---> Tag name
+    * . --> current directory
+
+----------------------------------------------
+List created docker files in system : docker images (or) docker image ls   
+
+
+--------------------------------------------------
+Run JS file from Docker image: docker run <tage-name>
+
+
+-------------------------------------------------------
+Pull image from docker hub and store the local machine
+    cmd: docker pull <repository-name>/<image-container-name>

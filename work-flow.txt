@@ -1,0 +1,6 @@
+Docker container 
+    - It contains all required packages
+    - Runtime environments
+
+Docker Hub:
+    Hub contains all images(contains isolated environment)    
