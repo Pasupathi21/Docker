@@ -1,0 +1,17 @@
+# Simple express app for explor docker
+
+
+------------------- In Docker config file 
+#  step 1) Add BASE environment for running application
+# step 2) Create working directory
+# step 3) Copy required files for package.json
+# step 4) Install NPM packages from package.json file
+# step 5) Again copy all file (or) required files
+# step 6) expose port
+# step 7) Run code 
+
+# > docker build .  => this cmd build the container image for this config file
+
+# > docker run -p <expose-port>:<expose-port> <image-id>  => to run  the docker image [-p port:port] => this segment publish the port to from the cotainer to access outside
+
+# > docker ps ==> list all running containers
