@@ -33,3 +33,8 @@ cmd: docker ps -a ------> It shows stopped containers also
 
 -----------------------------------------------------------------
 cmd: docker run -it ubuntu ---> (-it) This means interative mode it execute the Ubuntu CLI
+
+------------------------------------------------
+
+cmd: docker run -p <LOCAL_PORT>:<EXPOSE_PORT> <IMAGE_NAME>  ----> "<LOCAL_PORT>:<EXPOSE_PORT>" following this part connect to the system localhost port to container
+                                                                    exposed port
