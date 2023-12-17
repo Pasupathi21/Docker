@@ -67,3 +67,15 @@ cmd: docker rm <CONATINER_NAM_1> <CONATINER_NAM_2>   ----> Removed multiple cont
 cmd: docker rmi <IMAGE_ID (OR) TAGE_NAME>  ----> Remove image
 
 cmd: docker rmi <IMAGE_ID (OR) TAGE_NAME 1> <IMAGE_ID (OR) TAGE_NAME 2> ----> Remove more images
+
+cmd: docker run -p <LOCAL_PORT>:<EXPOSE_PORT> -d --rm <IMAGE_ID or NAME>   ----> '--rm' flag will delete once you 'stop' the container, '-d' we specified is detached or attached mode (OPTIONAL)
+
+
+================================Inspect images
+cmd: docker image inspect <IMAGE_NAME>  ----> This cmd list the all details and meta-data about the given image
+
+
+===================================== TAG NAME for IMAGES and containers
+cmd: docker build -t <CUSTOM_IMAGE_NAME:CUSTOM_TAGE_NAME>  ----> This will create custom image and tag names
+
+cmd docker run -p <LOCAL_PORT>:<EXPOSE_PORT> -d --rm --name <CUSTOM_CONATINER_NAME> <IMAGE_NAME>: ----> Following cmd will create custom container name, whatever name you want just give after the '--name' flag ,  '-d --rm'  flag are OPTIONAL
