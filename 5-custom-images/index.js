@@ -4,6 +4,7 @@ const app = express()
 
 app.get('/', (req, res) => {
     const { message } = req.query
+    console.log('Message: ', message)
     res.send(`
     <html>
     <head>

@@ -38,3 +38,15 @@ cmd: docker run -it ubuntu ---> (-it) This means interative mode it execute the 
 
 cmd: docker run -p <LOCAL_PORT>:<EXPOSE_PORT> <IMAGE_NAME>  ----> "<LOCAL_PORT>:<EXPOSE_PORT>" following this part connect to the system localhost port to container
                                                                     exposed port
+
+
+================================ Docker run cmd
+cmd: dokcer start <CONTAINER_NAME> ----> This cmd run already existing container, not creat new container
+
+cmd: docker logs <CONATINER_NAME>   ----> Prints's  Already existing logs (eg: console.log('log')) , note: "once container should up and ruunig"
+
+cmd: docker logs -f <CONATINER _NAME>  ----> This cmd will print future logs
+
+cmd: docker start -a <CONTAINER_NAME>   ----> This shorthand of attached mode (Print logs)
+
+cmd docker start -d <CONTAINER_NAME>   ----> Shorthand cmd for detached mode (No logs print)
