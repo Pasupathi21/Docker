@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     </head>
     <body>
         <main>
-            <h3>${message ? message : 'No Message'}</h3>
+            <h3>Message: ${message ? message : 'No Message'}</h3>
         </main>
     </body>
 </html>
