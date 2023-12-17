@@ -49,4 +49,21 @@ cmd: docker logs -f <CONATINER _NAME>  ----> This cmd will print future logs
 
 cmd: docker start -a <CONTAINER_NAME>   ----> This shorthand of attached mode (Print logs)
 
-cmd docker start -d <CONTAINER_NAME>   ----> Shorthand cmd for detached mode (No logs print)
+cmd: docker start -d <CONTAINER_NAME>   ----> Shorthand cmd for detached mode (No logs print)
+
+cmd: docker start -it <CONTAINER_NAME>  --> This will run the container with intercative mode
+
+cmd: docker start -a -i <CONTAINER_NAME> ----> This run with acttached with iteractive mode (You can give input, and get output in terimina)
+                                                eg: if your runing python code with some input and get output the above mention cmd will heplful
+
+========================== Remove image and containers
+
+cmd: docker rm <CONATINER_NAM>    ----> Remove the specified container
+
+cmd: docker rm <CONATINER_NAM_1> <CONATINER_NAM_2>   ----> Removed multiple container with single cmd
+
+**note: If you want to delete image , first you should remove respective CONTAINER for that particular image
+
+cmd: docker rmi <IMAGE_ID (OR) TAGE_NAME>  ----> Remove image
+
+cmd: docker rmi <IMAGE_ID (OR) TAGE_NAME 1> <IMAGE_ID (OR) TAGE_NAME 2> ----> Remove more images
