@@ -70,6 +70,8 @@ cmd: docker rmi <IMAGE_ID (OR) TAGE_NAME 1> <IMAGE_ID (OR) TAGE_NAME 2> ----> Re
 
 cmd: docker run -p <LOCAL_PORT>:<EXPOSE_PORT> -d --rm <IMAGE_ID or NAME>   ----> '--rm' flag will delete once you 'stop' the container, '-d' we specified is detached or attached mode (OPTIONAL)
 
+cmd: docker image prune -a ----> Delete all local images
+
 
 ================================Inspect images
 cmd: docker image inspect <IMAGE_NAME>  ----> This cmd list the all details and meta-data about the given image
@@ -79,3 +81,18 @@ cmd: docker image inspect <IMAGE_NAME>  ----> This cmd list the all details and 
 cmd: docker build -t <CUSTOM_IMAGE_NAME:CUSTOM_TAGE_NAME>  ----> This will create custom image and tag names
 
 cmd docker run -p <LOCAL_PORT>:<EXPOSE_PORT> -d --rm --name <CUSTOM_CONATINER_NAME> <IMAGE_NAME>: ----> Following cmd will create custom container name, whatever name you want just give after the '--name' flag ,  '-d --rm'  flag are OPTIONAL
+
+
+============================= Push/Pull image to docker hub =================================
+
+**note: First signin or signup to the 'docker hub'
+cmd: docker login ----> If you want to push images to docker, you need to login docker, In your local machine
+
+cmd: docker tag <EXISTING_IMAGE> <DOCKER_HUB_NAME/REPO_NAME>:
+        If you want to push your image to 'docker hub', 'docker hub' have some restriction you should follow the image name convention
+    Always image should contain <your docker hub name>/<repo name> , do you have any existing image, above mention cmd will colne existing image
+    and create the given taged name image, then you can push your newly created image to docker,
+    i) First flag is existing images in your local
+    ii) Second flag is you should give the required naming convention for 'docker hub'
+
+cmd: docker push <IMAGE _NAME>  ----> This push local image to docker hub
