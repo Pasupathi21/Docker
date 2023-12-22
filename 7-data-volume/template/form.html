@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forn</title>
+    <style>
+        body {
+            margin: 0%;
+            padding: 0%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+        }
+        form {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 5px snow;
+            gap: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <form action="/add-comment" method="get" >
+            <div>
+
+                <label for="file-name">File Name: </label>
+                <input type="text" id="file-name" name="filename">
+            </div>
+            <div>
+
+                <label for="comment-section">Comments: </label>
+                <textarea type="text" rows="5" cols="50" id="comment-section" name="comment"></textarea>
+            </div>
+            <div>
+
+                <input type="submit" value="Submit"/>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
