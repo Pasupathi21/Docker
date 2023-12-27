@@ -96,3 +96,37 @@ cmd: docker tag <EXISTING_IMAGE> <DOCKER_HUB_NAME/REPO_NAME>:
     ii) Second flag is you should give the required naming convention for 'docker hub'
 
 cmd: docker push <IMAGE _NAME>  ----> This push local image to docker hub
+
+
+==================================== Data volume ==========================================
+
+cmd: docker volume ls  ----> List all created named volumes from the local machine 
+
+cmd: docker run -p <LOCAL_PORT>:<EXPOSE_PORT>  --rm --name <CONT_NAME> -v <VOLUME_NAMR>:/<DATA_FOLDER(eg: app/data)> <MAGE_NAME>
+
+above the cmd will create the named volume "-v <VOLUME_NAME>:/<DATA_FOLDER(eg: app/data)>" 
+    <VOLUME_NAMR> ----> this part is name of the volume
+    <DATA_FOLDER(eg: app/data)> ----> this part is data store folder from the code base
+
+cmd: docker volume create <VOLUME_NAME>  ----> You can create voulme manually
+
+cmd: docker volume rm <VOLUME_NAME>  ----> This cmd removes the volume
+
+cmd: docker volume prune ----> Remove all un-used volumes
+
+===================================Dockerignore =====================================
+'.dockerignore'  ----> What are the files we don't need to copy when build the image in docker wa can put that particular file name in '.dockerignore'
+
+
+============================ Docker env
+
+type (1):
+cmd: docker run -d --rm -p 3000:1221 --env-file ./.env --name <CONTAINER_ANE>  <IMAGE_NAME>
+
+'--env-file' ----> flad and following env file in the container, we can put all env variable in that file
+
+
+type (2):
+cmd: docker run -d --rm 3000:1221 -e PORT=1001 --name <CONTAINER_ANE>  <IMAGE_NAME>
+
+    This method we can directly give the ENV flag to the CLI

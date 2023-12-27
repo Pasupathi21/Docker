@@ -31,5 +31,5 @@ app.get('/add-comment', (req, res) => {
    
 })
 
-
-app.listen(1221, () => console.log('app up and running 🚀'))
+console.log('ENV VAR', process.env.TEST_ENV_VAR)
+app.listen(process.env.PORT, () => console.log('app up and running 🚀'))
