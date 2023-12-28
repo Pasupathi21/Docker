@@ -10,11 +10,17 @@ COPY . .
 
 #  we can set env var inside the dockerfile
 
-# ENV POST 1227
+# ARG is ARGUMENT and this will value will be assign in build time with cmd: docker build -t <IMG_NAME>:<TAG> --build-arg DEFAULT_PORT=<PORT_NUM> 
+ARG DEFAULT_PORT 
+ARG IS_MULTIPLE 
 
-# $PORT is variable to 
-# EXPOSE $PORT
+# Below the line we set the ARG to ENV 
+ENV PORT ${DEFAULT_PORT}
 
-EXPOSE 1221
+ENV MULTI_ARG ${IS_MULTIPLE}
+
+EXPOSE ${PORT}
+
+# EXPOSE 1221
 
 CMD ["node", "server.js"]

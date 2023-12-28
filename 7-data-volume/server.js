@@ -32,4 +32,5 @@ app.get('/add-comment', (req, res) => {
 })
 
 console.log('ENV VAR', process.env.TEST_ENV_VAR)
+console.log('MULTI_ARG', process.env.MULTI_ARG)
 app.listen(process.env.PORT, () => console.log('app up and running 🚀'))
