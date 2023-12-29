@@ -118,7 +118,7 @@ cmd: docker volume prune ----> Remove all un-used volumes
 '.dockerignore'  ----> What are the files we don't need to copy when build the image in docker wa can put that particular file name in '.dockerignore'
 
 
-============================ Docker env
+============================ Docker ENV and ARG 
 
 type (1):
 cmd: docker run -d --rm -p 3000:1221 --env-file ./.env --name <CONTAINER_ANE>  <IMAGE_NAME>
@@ -130,3 +130,10 @@ type (2):
 cmd: docker run -d --rm 3000:1221 -e PORT=1001 --name <CONTAINER_ANE>  <IMAGE_NAME>
 
     This method we can directly give the ENV flag to the CLI
+
+Note: AGR(ARGUMENT) we can assign only when build the image
+Exp:
+    First you should Add 'ARG' inside the Dockerfile
+
+    cmd: docker build -t <IMG_NAME>:<TAG>  --build-arg <DOCKER_AGR_ANE>=<VALUE>
+    This cmd will help  you build different images with different environmet and same code 
