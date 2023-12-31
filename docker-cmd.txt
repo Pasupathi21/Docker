@@ -137,3 +137,32 @@ Exp:
 
     cmd: docker build -t <IMG_NAME>:<TAG>  --build-arg <DOCKER_AGR_ANE>=<VALUE>
     This cmd will help  you build different images with different environmet and same code 
+
+
+====================== Container networking ===============================
+
+type(1): CONATINER to WWW network
+      This will work perfrctly no config needed
+
+type(2): CONTAINER to LOCALMACHIN (HOST)
+    If you access docker conatainer to your local machine any services like (mongodb(local host), localhost web services)
+
+
+    Note*: Only for local machine
+
+    In this case docker provide the domain 'host.docker.internal' to access localhost service
+        eg: mongodb://localhost:27017/<DB_NAME>   (to)  mongodb://host.docker.internal/<DB_NAME>
+
+type(3): CONTAINER to CONTAINER
+    This secnario comes under the networing between the containers
+
+    step: 1
+        first create the container 
+        cmd: docker network create <NETWORK_NAME>
+        cmd: docker network ls  -----> This will list the all existing and created network from your local machine
+    step: 2
+        after creating the network, what are the containers you want, RUN with the network flag,
+        note: If you are running the any port you want to expose that port, then only you add '-p'flag to expose 
+        cmd: docker run --network <NETWORK_NAME> <IMAGE_NAME>
+
+
