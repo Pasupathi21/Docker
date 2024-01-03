@@ -18,12 +18,12 @@ server.use(cors())
 server.use('/public', express.static('public'))
 
 // ********** DB connection 
-mongoose.connect('mongodb://127.0.0.1:27017/dcr-multi').then(() => console.log('🟢 connection success')).catch(e => console.log('🔴 connection failed'))
+mongoose.connect('mongodb://host.docker.iternal/dcr-multi').then(() => console.log('🟢 connection success')).catch(e => console.log('🔴 connection failed'))
 
 function logFn(req, res, next){
     try {
         let data = `[${new Date().toLocaleDateString()}]: ${req.method}`
-        fs.writeFileSync(path.join(__dirname, 'logs', `${Date.now}.log`), data)
+        fs.writeFileSync(path.join(__dirname, 'logs', `${Date.now()}.log`), data)
         next()
     } catch (e) {
         console.log('error', e)
