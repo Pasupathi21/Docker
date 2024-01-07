@@ -18,7 +18,7 @@ server.use(cors())
 server.use('/public', express.static('public'))
 
 // ********** DB connection 
-mongoose.connect('mongodb://host.docker.iternal/dcr-multi').then(() => console.log('🟢 connection success')).catch(e => console.log('🔴 connection failed'))
+mongoose.connect('mongodb://mongodb:27017/dcr-multi').then(() => console.log('🟢 connection success')).catch(e => console.log('🔴 connection failed'))
 
 function logFn(req, res, next){
     try {
