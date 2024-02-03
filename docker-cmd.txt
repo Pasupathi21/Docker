@@ -173,3 +173,21 @@ Multi containered app runs inside the network
             API through the PORT  
         *note: if you running react app, you should run with interactive flag
             cmd: docker run -it --name <CONTAINER_NAME>  <IMAGE_NAME>  ----> '-it' refers to the INTERACTIVE
+
+
+
+======================= Docker compose =================================
+
+1) Create root level docker-compose.yml (or) .yaml file
+    What are the services, we need should write
+
+    note: 
+        Defaultly docker will create network and run all services same network
+
+    cmd: 
+         docker-compose --version (verify istalled or not)
+
+        1. docker-compose up ----> Running all cofigured service in docker-compose file
+        2. docker-compose down ----> Stop all services
+        3. docker-compose down -v -----> This cmd stoped all services and removed the DATA VOLUMES also
+

@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+
+  # Note: Config docker services in order wise, it will help for you can run container dependency based
+
+  # 1) Service 1
+  mongodb:
+    image: mongo
+
+    # Note*: we can use custom container names in docker-compose
+    # container_name: mongodbs
+
+    volumes:
+      - data:/data/db
+    env_file: 
+      - ./backend/.env
+
+  # Service 2
+  backend:
+
+    # if you don't have a image, you can build image
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    # expose port
+    ports:
+      - '3001:3001'
+      # - '3001:5001'
+
+    # set different volumes
+    volumes:
+      # 1) named volume
+      - logs:/app/logs
+
+      # bind volumes
+      # - ./backend:/app
+
+      # anonymous volume
+      - ./app/node_modules
+
+    # set env files
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mongodb
+
+  # Service 3
+
+  forntend:
+
+    # build image
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    
+    # expose port
+    ports:
+      - '3000:3000'
+    
+    # despends_on state
+    depends_on:
+      - backend 
+
+    # In frontend we need to run INTER-ACTIVE mode add some extra config below added two is only for interactive purpose
+    stdin_open: true
+    tty: true
+  
+# You can only specify the named volumes in the volumes section
+volumes:
+  data:
+  logs:
