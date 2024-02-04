@@ -191,3 +191,13 @@ Multi containered app runs inside the network
         2. docker-compose down ----> Stop all services
         3. docker-compose down -v -----> This cmd stoped all services and removed the DATA VOLUMES also
 
+    Run docker-compose file
+        We can run particlar container with docker-compose
+        
+        cmd: docker-compose run --rm service 
+
+    Up maultiple service in docker-compose
+        cmd: docker-compose up -d --build service-1 servie-2 service-3
+        -d ----> Detached mode
+        --build ----> docker-compose re-check if any changes are happen in code then take build image
+
