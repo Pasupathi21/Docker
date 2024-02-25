@@ -1,0 +1,43 @@
+After sign-in AWS
+
+EC2: Elastic Compute Cloud
+
+step 1:
+
+    - Create EC2 instance with default settings for free tier (OS: Amazon-Linux (or) any other OS).
+    - Each instanc have a separate key pair (.pem) -> key for access the AWS instance, should generate while create the the instance.
+    - Once create the .pem file, Then download and store the file into local machine someother folder.
+    - after the creation of EC2 instance, then ensure the status of instance is running. 
+
+step 2: (SSH connection with ubuntu)
+
+    - We can connect EC2 instance in different way, In this case we connect through, ssh (secure shell).
+    - Connect the local machine to remote machine using key file(.pem)
+    - open and run terminal .pem file folder (or)  use .pem path  if your working in different dir from .pem dir
+        cmd 1): chmod 400 <PEM FILE> (or) <PEM FILE PATH>  --> 400 permissio to set key only readable for owner
+    - After successfully connect set permission
+        cmd 2): ssh -i <"my-first-server.pem" (or) path with filename> ec2-user@ec2-3-81-133-252.compute-1.amazonaws.com
+    - Above mentioned two cmd's are provide the AWS in CE2 instace dashbord > connect tab
+            note: only use relative path if your store the .pem file in different dir from your working dir, above mentioned two cmds\\
+
+step 3: (Install Docker)
+
+    - After connecting the remote server
+    - Install docker with AMAZON-Linux
+        cmd 1): sudo yum update -y -----> update all packages
+
+    - In amazon linux OS we install docker with using yum
+        cmd 2):  sudo yum install -y docker  ----> To install docker
+        cmd 3):  sudo service docker start   ----> Start the docker application, after successfully servide started, we use all docker cmds 
+
+EC2 Instance space 
+    cmd: df -h ----> List info about total space , usage and available space    
+
+
+AWS Different services
+
+ECS(Elastic Container Service):
+    Simplify the deployment process fully task based workflow to deploy the docker images.
+
+EFS(Elastic File System):
+    This service gives storage and the file system in remote access, we can use this service with ECS for DATA VOLUMS to persits the container data.

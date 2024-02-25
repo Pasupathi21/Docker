@@ -1,0 +1,1 @@
+ssh -i /home/pasupathi/Documents/my-workspace/pemkey/my-first-server.pem ec2-user@ec2-3-81-133-252.compute-1.amazonaws.com
