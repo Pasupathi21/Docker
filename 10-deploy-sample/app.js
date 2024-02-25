@@ -15,6 +15,6 @@ app.get('/', (req, res) => {
 
     }
 })
-app.listen(5500, () => {
-    console.log('server up and running')
+app.listen(80, () => {
+    console.log('server up and running in 5500')
 })
