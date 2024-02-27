@@ -1,0 +1,25 @@
+
+++++++++++++++++++++++++++++++++++++++
+1) FE: 
+   
+    users
+     - create users
+     - update
+     - delete
+    
+    chat 
+       user can chat any to any
+
+     Docker file 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2) BE: 
+    user: crud
+    live chat handling
+
+    Docker file
+
+++++++++++++++++++++ To deploy into EC2 important ++++++++++++++++=
+3) docker-compose:
+   - compose all required services in that file and move to ec2 instance
+   - then up the service to create
