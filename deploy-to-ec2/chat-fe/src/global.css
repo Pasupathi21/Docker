@@ -1,0 +1,87 @@
+ :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* line-height: 1.5; */
+  font-weight: 400;
+
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    display:flex;
+    margin:0%;
+    padding: 0%;
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    height: 25px;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+button {
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    border-style: none;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+form {
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    background-color: grey;
+    flex-direction: column;
+    margin: 10px;
+    width:  40%
+}
+
+form > div {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+form > div > * {
+    margin: 2px
+}
+
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+table > thead {
+    padding: 2px;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+}
+
+table > tbody {
+    font-weight: 400;
+}
+
+
+td {
+    padding: 5px;
+    text-align: center;
+    border-right: 1px solid black;
+    
+}
