@@ -31,7 +31,7 @@ step 3: (Install Docker)
         cmd 3):  sudo service docker start   ----> Start the docker application, after successfully servide started, we use all docker cmds 
 
 EC2 Instance space 
-    cmd: df -h ----> List info about total space , usage and available space    
+    cmd: df -h ----> List info about total space , usage and av ailable space    
 
 
 AWS Different services

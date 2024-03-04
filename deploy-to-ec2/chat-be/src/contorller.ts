@@ -1,4 +1,5 @@
 import type { Request, Response} from 'express'
+import { UserCollection } from './model/user'
 
 class Controller {
     constructor(){ }
@@ -7,6 +8,12 @@ class Controller {
         res.send({
             message: 'success'
         })
+    }
+
+    async createUser(req: Request, res: Response){
+        const payload = req.body
+        const createRes = await UserCollection.create(payload)
+        res.send(createRes)
     }
 }
 

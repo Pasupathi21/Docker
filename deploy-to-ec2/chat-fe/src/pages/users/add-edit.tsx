@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
+import { APIService } from '../../service/index.ts'
 
 function AddEditUser(props: any) {
 
@@ -7,9 +9,16 @@ function AddEditUser(props: any) {
         email: null
     })
 
-    const submit = () => {
+    const submit = async () => {
         if(formData?.username && formData?.email){
-            // 
+            const response = await APIService('./create-user', formData, {
+                method: 'POST',
+                mode: 'cors',
+                Headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            console.log('response >>>>>>>>>>>>>>', response)
         }
         alert('username and email is required')
     }
