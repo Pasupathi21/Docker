@@ -1,39 +1,40 @@
-import { useState } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
+import { ApiService } from '../../service/index.ts'
 
 function ListUsers() {
     const navigate = useNavigate()
-    const [tableData, setTableData] = useState<any>([
-        {
-            username: 'Test 1',
-            email: 't@t.com'
-        },
-        {
-            username: 'Test 1',
-            email: 't@t.com'
-        },
-        {
-            username: 'Test 1',
-            email: 't@t.com'
-        },
-        {
-            username: 'Test 1',
-            email: 't@t.com'
-        },
-        {
-            username: 'Test 1',
-            email: 't@t.com'
+    const [tableData, setTableData] = useState<any[]>([])
+    const getUsers = async () => {
+        console.log('getUsers >>>>>>>>')
+        try {
+            const res = await ApiService('/list-user', {}, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            setTableData(res)
+            console.log('users >>>>>>>>', res)
+        } catch (e) {
+            console.log(e)
         }
-    ])
+
+    }
+    useEffect(() => {
+        getUsers()
+    }, [])
     return <>
-        <div style={{ display: 'flex', flexDirection: 'column'}}>
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
-                <div style={{  textAlign: 'right' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={{ textAlign: 'right' }}>
                     <h2>User's List</h2>
                 </div>
-                <div style={{ width: 'auto'}}>
-                    <button type="button" style={{ width: '100px', padding: '5px', background:'rgba(228, 210, 255, 0.8)' }} onClick={()=> navigate('/add-edit-user')}>{'user(+)'}</button>
+                <div style={{ width: 'auto' }}>
+                    <button type="button" style={{ width: '100px', padding: '5px', background: 'rgba(228, 210, 255, 0.8)' }} onClick={() => navigate('/add-edit-user')}>{'user(+)'}</button>
                 </div>
 
             </div>

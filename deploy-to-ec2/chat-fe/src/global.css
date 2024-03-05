@@ -85,3 +85,51 @@ td {
     border-right: 1px solid black;
     
 }
+
+.chat_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 70%;
+    flex-direction: column;
+    border: 1px solid red;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.chat_container > div {
+    width: 100%;
+    border: 1px solid green
+} 
+
+.chat_container_head {
+    margin: 10px;
+    text-align: left;
+    height: 10%;
+    align-items: flex-start;
+}
+.chat_container_body {
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px
+}
+
+.chat_container_body > .chat_user_list {
+    width: 35%;
+    border: 1px solid black;
+    margin: 5px;
+    overflow-y: scroll;
+
+}
+
+.chat_container_body > .chatting_section {
+    width: 65%;
+    border: 1px solid black;
+    margin: 5px
+}
+
+ul {
+    list-style-type: none;
+}

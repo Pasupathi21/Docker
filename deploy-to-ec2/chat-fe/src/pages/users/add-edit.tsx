@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
-import { APIService } from '../../service/index.ts'
+import { ApiService } from '../../service/index'
 
 function AddEditUser(props: any) {
 
@@ -9,14 +9,19 @@ function AddEditUser(props: any) {
         email: null
     })
 
-    const submit = async () => {
+    const submit = async (event: any) => {
+        event?.preventDefault()
+        console.log('formData >>>>>>>>>>>>>>', formData)
         if(formData?.username && formData?.email){
-            const response = await APIService('./create-user', formData, {
+            const response = await ApiService('/create-user', formData, {
                 method: 'POST',
-                mode: 'cors',
-                Headers: {
+                // mode: 'cors',
+                // cache: 'no-cache',
+                // credentials: "same-origin",
+                headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                // referrerPolicy: "no-referrer",
             })
             console.log('response >>>>>>>>>>>>>>', response)
         }
@@ -26,7 +31,7 @@ function AddEditUser(props: any) {
     return <>
 
 
-        <form >
+        <form onSubmit={submit}>
             <div style={{ textAlign: 'center', color: 'white'}}>
 
                 <h2>Add User</h2>
@@ -41,7 +46,7 @@ function AddEditUser(props: any) {
                 <input type="email" value={formData?.email} onChange={(e) => setFormData({ ...formData, email: e?.target?.value})} />
             </div>
             <div>
-                <button type='submit' onClick={() => submit()}>add</button>
+                <button type='submit'>add</button>
             </div>
         </form>
 

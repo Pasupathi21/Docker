@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import { AppRoutes } from './routes'
 
 dotenv.config({ path: `${__dirname}/env/.env.${process.env.NODE_ENV}`})
@@ -9,6 +10,7 @@ const server = express()
 
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
+server.use(cors())
 
 // initial routes
 server.use('/public', express.static('public'))
