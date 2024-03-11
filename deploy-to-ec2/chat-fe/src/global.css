@@ -100,7 +100,7 @@ td {
 
 .chat_container > div {
     width: 100%;
-    border: 1px solid green
+    /* border: 1px solid green */
 } 
 
 .chat_container_head {
@@ -118,7 +118,7 @@ td {
 
 .chat_container_body > .chat_user_list {
     width: 35%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 5px;
     overflow-y: scroll;
 
@@ -126,10 +126,51 @@ td {
 
 .chat_container_body > .chatting_section {
     width: 65%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 5px
 }
 
 ul {
     list-style-type: none;
+}
+
+.chatting_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.chatting_section__message {
+    width: 100%;
+    /* height: 100%; */
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.chatting_section__message__input {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 5px;
+    /* justify-content: center; */
+    
+}
+.chatting_section__message__history {
+    height: 90%;
+}
+
+.chatting_section__message__input {
+    height: 10%;
+}
+
+.chatting_section__message__input > input {
+    width: 85%
+}
+
+.chatting_section__message__input > button {
+    width: 15%
 }

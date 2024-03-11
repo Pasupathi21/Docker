@@ -1,5 +1,6 @@
 import type { Request, Response} from 'express'
 import { UserCollection } from './model/user'
+import { Chat } from './model/chat'
 
 class Controller {
     constructor(){ }
@@ -40,6 +41,34 @@ class Controller {
             status: true,
             message: 'login success',
             data: getUser
+        })
+    }
+
+    async postMessage(req: Request, res: Response){
+        const payload = req.body
+        console.log('payload >>>>>>>>>>>', payload)
+        const posted = await Chat.create({
+            ...payload
+        })
+        
+        res.send({
+            status: true,
+            message: 'message sended',
+            data: posted
+        })
+    }
+
+    async getMessageHistory(req: Request, res: Response){
+        const payload = req.body
+        const getMsgList = await Chat.find({
+            from: payload.from,
+            to: payload?.to
+        })
+        
+        res.send({
+            status: true,
+            message: 'list getted',
+            data: getMsgList
         })
     }
 }
