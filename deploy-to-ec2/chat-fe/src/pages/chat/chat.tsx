@@ -11,7 +11,7 @@ function Chat(props: any) {
     console.log('userData >>>>>>>>', location)
     const [users, setUsers] = useState<any[]>([])
     const [selectedUser, setSelectedUser] = useState<any>(null)
-    const  [messageHistroy, setMessageHistory] = useState<any[]>([])
+    const [messageHistroy, setMessageHistory] = useState<any[]>([])
     const [inputMessage, setInputMessage] = useState<string>('')
 
     const getUserList = async () => {
@@ -25,12 +25,12 @@ function Chat(props: any) {
             from: userData._id,
             to: selectedUser._id
         }
-        const res = await ApiService(URL, payload, { method: 'POST', headers: { 'Contenty-Type': 'application/json' } })
-        setMessageHistory(res)
+        const res = await ApiService(URL, payload, { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+        setMessageHistory(res?.data)
     }
 
     const listClick = (index: number) => {
-        const tempUser: any[] = users?.map(m => ({...m, bgColor: ''}))
+        const tempUser: any[] = users?.map(m => ({ ...m, bgColor: '' }))
         console.log('tempUser >>>>>>>>>>', tempUser)
         tempUser[index].bgColor = 'rgba(199, 209, 245, 0.5)'
         console.log('listClick on click ', tempUser)
@@ -44,9 +44,18 @@ function Chat(props: any) {
             to: selectedUser?._id,
             message: inputMessage
         }
-        if(selectedUser && inputMessage){
+        if (selectedUser && inputMessage) {
             const URL = '/send-message'
-            const res = await ApiService(URL, payload, { method: 'POST', headers: { 'Contenty_Type': 'application/json' } })
+            const response = await ApiService(URL, payload, {
+                method: 'POST',
+                // mode: 'cors',
+                // cache: 'no-cache',
+                // credentials: "same-origin",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                // referrerPolicy: "no-referrer",
+            })
             setInputMessage('')
             getMessageList()
         }
@@ -57,6 +66,9 @@ function Chat(props: any) {
     useEffect(() => {
         getUserList()
     }, [])
+    useEffect(() => {
+        getMessageList()
+    }, [selectedUser])
 
     return <>
         <div className="chat_container">
@@ -71,16 +83,32 @@ function Chat(props: any) {
                 </div>
                 <div className='chatting_section__message'>
                     <div className="chatting_section__message__history">
-                        <h3>{selectedUser ? selectedUser?.username :  'select any user to chat' }</h3>
-                        {/* <ol>
+                        <h3>{selectedUser ? selectedUser?.username : 'select any user to chat'}</h3>
+                        <div className='message_history'>
+                            {messageHistroy.map((item, index) => (
+                                <div className="message_history__block" style={{ alignItems: (index % 2) === 0 ? 'start' : 'end' }}>
+                                    <div className='message__slot'>
+                                        <div>
+                                            <h5><b>
 
-                        {messageHistroy.map(message => (
-                            <li></li>
-                        ))}
-                        </ol> */}
+                                                {
+                                                    item?.message
+                                                }
+                                            </b>
+
+                                            </h5>
+                                        </div>
+                                        |
+                                        <div>
+                                            <h6 >{new Date(item?.createdAt)?.toLocaleDateString('en-US')}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className="chatting_section__message__input">
-                        <input type="text" className="" value={inputMessage} onChange={(event: HTMLInputElement | any) => setInputMessage(event?.target?.value)}/>
+                        <input type="text" className="" value={inputMessage} onChange={(event: HTMLInputElement | any) => setInputMessage(event?.target?.value)} />
                         <button onClick={() => sendMessage()}>send</button>
                     </div>
 

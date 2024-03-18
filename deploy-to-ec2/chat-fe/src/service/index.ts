@@ -6,6 +6,7 @@ export const ApiService = async (URL:string, data: Record<string, unknown> = {},
         header.body = JSON.stringify(data)
     }
     URL = API_ENDPOINT + URL
+    console.log('headers >>>>>>>>>>>', header)
     return (await fetch(URL, header)).json()
 
 }

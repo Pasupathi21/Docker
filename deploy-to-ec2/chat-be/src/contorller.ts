@@ -1,6 +1,7 @@
 import type { Request, Response} from 'express'
 import { UserCollection } from './model/user'
 import { Chat } from './model/chat'
+import mongoose from 'mongoose'
 
 class Controller {
     constructor(){ }
@@ -46,7 +47,7 @@ class Controller {
 
     async postMessage(req: Request, res: Response){
         const payload = req.body
-        console.log('payload >>>>>>>>>>>', payload)
+        console.log('payload >>>>>>>>>>>', req.body)
         const posted = await Chat.create({
             ...payload
         })
@@ -60,10 +61,55 @@ class Controller {
 
     async getMessageHistory(req: Request, res: Response){
         const payload = req.body
-        const getMsgList = await Chat.find({
-            from: payload.from,
-            to: payload?.to
-        })
+        console.log('getMessageHistory >>>>', payload)
+        const getMsgList = await Chat.aggregate([
+            {
+                $match:{
+                    from : new mongoose.Types.ObjectId(payload?.from) ,
+                    to : new mongoose.Types.ObjectId(payload?.to), 
+                }
+            },
+            {
+                $lookup: {
+                    from: 'users',
+                    foreignField: '_id',
+                    localField: 'from',
+                    as: 'from',
+                    pipeline: [
+                        {
+                            $project: {
+                                username: 1
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                $lookup: {
+                    from: 'users',
+                    foreignField: '_id',
+                    localField: 'to',
+                    as: 'to',
+                    pipeline: [
+                        {
+                            $project: {
+                                username: 1
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                $addFields: {
+                    from: { $first: '$from'},
+                    to: { $first: '$to'}
+                }
+            }
+        ])
+        //  = await Chat.find({
+        //     from: payload?.from,
+        //     to: payload?.to
+        // })
         
         res.send({
             status: true,

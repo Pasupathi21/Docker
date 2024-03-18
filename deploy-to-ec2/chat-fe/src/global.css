@@ -174,3 +174,38 @@ ul {
 .chatting_section__message__input > button {
     width: 15%
 }
+.message_history {
+    max-height: 110px;
+    overflow-y: scroll;
+}
+
+.message_history__block {
+   
+    display: flex;
+    flex-direction: column;
+    /* justify-content: end; */
+    width: 100%;
+    align-items: start;
+}
+
+/* .message_history > div*{
+   display: flex;
+   flex-direction: row;
+} */
+
+.message__slot {
+    margin: 5px;
+    width: 50%;
+    height: 'auto';
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    border-radius: 10px;
+    border-top: 2px solid rgb(47, 120, 255);
+    border-left: 2px solid rgb(47, 120, 255);
+    flex-wrap: wrap;
+    background: rgb(153, 235, 224);
+    /* justify-content: end; */
+}
