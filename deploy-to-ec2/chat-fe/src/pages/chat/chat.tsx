@@ -86,7 +86,7 @@ function Chat(props: any) {
                         <h3>{selectedUser ? selectedUser?.username : 'select any user to chat'}</h3>
                         <div className='message_history'>
                             {messageHistroy.map((item, index) => (
-                                <div className="message_history__block" style={{ alignItems: (index % 2) === 0 ? 'start' : 'end' }}>
+                                <div className="message_history__block" style={{ alignItems: (userData?._id === item?.to?._id) ? 'end' : 'start' }}>
                                     <div className='message__slot'>
                                         <div>
                                             <h5><b>

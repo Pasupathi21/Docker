@@ -64,48 +64,69 @@ class Controller {
         console.log('getMessageHistory >>>>', payload)
         const getMsgList = await Chat.aggregate([
             {
-                $match:{
-                    from : new mongoose.Types.ObjectId(payload?.from) ,
-                    to : new mongoose.Types.ObjectId(payload?.to), 
-                }
-            },
-            {
-                $lookup: {
-                    from: 'users',
-                    foreignField: '_id',
-                    localField: 'from',
-                    as: 'from',
-                    pipeline: [
-                        {
-                            $project: {
-                                username: 1
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                $lookup: {
-                    from: 'users',
-                    foreignField: '_id',
-                    localField: 'to',
-                    as: 'to',
-                    pipeline: [
-                        {
-                            $project: {
-                                username: 1
-                            }
-                        }
-                    ]
+                $match: {
+                    from: new mongoose.Types.ObjectId(payload?.from),
+                    to: new mongoose.Types.ObjectId(payload?.from),
                 }
             },
             {
                 $addFields: {
-                    from: { $first: '$from'},
-                    to: { $first: '$to'}
+                    fromKey: { $concat:[{ $toString: '$from'}, { $toString: '$to'}]} ,
+                    toKey: { $concat:[{ $toString: '$to'}, { $toString: '$from'}]}
                 }
-            }
-        ])
+            },
+            {
+                $match: {
+                    fromKey: `${payload?.from}${payload?.to}`,
+                    toKey: `${payload?.to}${payload?.from}`
+                }
+            },
+            {
+              $lookup: {
+                from: "users",
+                foreignField: "_id",
+                localField: "from",
+                as: "from",
+                pipeline: [
+                  {
+                    $project: {
+                      username: 1,
+                    },
+                  },
+                ],
+              },
+            },
+            {
+              $lookup: {
+                from: "users",
+                foreignField: "_id",
+                localField: "to",
+                as: "to",
+                pipeline: [
+                  {
+                    $project: {
+                      username: 1,
+                    },
+                  },
+                ],
+              },
+            },
+            {
+              $sort: {
+                createdAt: 1,
+              },
+            },
+            {
+              $addFields: {
+                from: {
+                  $first: "$from",
+                },
+                to: {
+                  $first: "$to",
+                },
+              },
+            },
+          ])
         //  = await Chat.find({
         //     from: payload?.from,
         //     to: payload?.to
