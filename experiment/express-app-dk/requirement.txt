@@ -1,0 +1,6 @@
+create one endpoint 
+API logic
+-> create one json obj structure
+-> search data from DB if exist decrypt data from and return to user
+-> if not exist encrypt data and store
+-> return to client
