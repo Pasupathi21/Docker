@@ -1,0 +1,136 @@
+{
+  "candidate": {
+    "id": "CAND-10293847",
+    "personal_info": {
+      "first_name": "Raju",
+      "last_name": "M",
+      "email": "raju.m@example.com",
+      "phone": "+91-9876543210",
+      "location": {
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "country": "India",
+        "postal_code": "641301"
+      }
+    },
+    "qualifications": {
+      "degrees": [
+        {
+          "level": "Bachelor's",
+          "field": "Computer Science",
+          "institution": "Sri Ramakrishna Mission Vidyalaya College of Arts and Science",
+          "university": "Bharathiar University",
+          "start_year": 2015,
+          "end_year": 2018,
+          "score": {
+            "type": "CGPA",
+            "value": 7.8
+          }
+        },
+        {
+          "level": "Higher Secondary",
+          "field": "Maths-Biology",
+          "institution": "Govt. Higher Secondary School",
+          "start_year": 2013,
+          "end_year": 2015,
+          "score": {
+            "type": "Percentage",
+            "value": 86.4
+          }
+        }
+      ],
+      "certifications": [
+        {
+          "title": "Full Stack Web Development",
+          "platform": "Coursera",
+          "issued_by": "University of London",
+          "issue_date": "2020-06-01",
+          "certificate_id": "FSWD-987654321"
+        },
+        {
+          "title": "AWS Certified Developer – Associate",
+          "issued_by": "Amazon Web Services",
+          "issue_date": "2021-09-15",
+          "certificate_id": "AWSDEV-20210915"
+        }
+      ]
+    },
+    "experience": {
+      "total_years": 3,
+      "companies": [
+        {
+          "company_name": "TechNova Solutions",
+          "location": "Coimbatore, India",
+          "position": "Software Developer",
+          "start_date": "2019-08-01",
+          "end_date": "2021-12-31",
+          "projects": [
+            {
+              "name": "Customer Feedback Platform",
+              "domain": "SaaS",
+              "description": "A web app to collect and analyze customer feedback.",
+              "technologies": ["React", "Node.js", "Express", "MongoDB", "Docker"],
+              "responsibilities": [
+                "Built reusable React components using hooks and context API",
+                "Designed RESTful APIs with Express.js",
+                "Integrated MongoDB and optimized queries",
+                "Dockerized the app for local and production use",
+                "Deployed backend to AWS EC2 with NGINX reverse proxy"
+              ]
+            }
+          ]
+        },
+        {
+          "company_name": "Innovent Tech Labs",
+          "location": "Bangalore, India",
+          "position": "Full Stack Engineer",
+          "start_date": "2022-01-01",
+          "end_date": "Present",
+          "projects": [
+            {
+              "name": "E-Commerce Admin Dashboard",
+              "domain": "Retail",
+              "description": "An admin panel to manage inventory, orders, and users.",
+              "technologies": ["React (TypeScript)", "NestJS", "PostgreSQL", "Redis", "Bull Queue", "AWS S3"],
+              "responsibilities": [
+                "Developed scalable modules with NestJS and TypeORM",
+                "Implemented authentication/authorization using JWT & Passport",
+                "Handled large file uploads with Multer + Bull queues",
+                "Integrated S3 for image storage",
+                "Built interactive UI with Material-UI and Zustand"
+              ]
+            },
+            {
+              "name": "Analytics Microservice",
+              "domain": "Data Engineering",
+              "description": "Microservice for processing and aggregating app usage analytics.",
+              "technologies": ["Node.js", "Kafka", "MongoDB", "ElasticSearch", "Grafana"],
+              "responsibilities": [
+                "Set up Kafka consumer groups for event streams",
+                "Designed aggregation pipelines in MongoDB",
+                "Pushed processed data to ElasticSearch for querying",
+                "Built Grafana dashboards for visualization"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "skills": {
+      "frontend": ["React", "Next.js", "TypeScript", "Material-UI", "TailwindCSS", "Zustand"],
+      "backend": ["Node.js", "Express.js", "NestJS", "Sails.js"],
+      "databases": {
+        "sql": ["PostgreSQL", "MySQL"],
+        "nosql": ["MongoDB", "Redis"]
+      },
+      "devops": ["Docker", "NGINX", "AWS EC2", "S3", "GitHub Actions"],
+      "others": ["REST API", "WebSockets", "Microservices", "OAuth", "JWT", "CI/CD"]
+    },
+    "languages": ["English", "Tamil"],
+    "availability": {
+      "notice_period": "15 days",
+      "remote": true,
+      "preferred_location": ["Coimbatore", "Chennai", "Bangalore"]
+    }
+  }
+}
