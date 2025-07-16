@@ -13,9 +13,12 @@ app.use(getRoutes())
 
 app.use((req, res, nxt) => res.status(404).json({ "message": "Not Found" }))
 
-const db_url: string = process.env.DATABASE_URL || ''
-console.log("db_url", db_url)
-// mongoose.connect(db_url).then(m => console.log('DB connection initiated')).catch(e => console.log('DB connection error', e))
+const database_url: string = process.env.DATABASE_URL || ''
+const db: string = process.env.DB || '' 
+console.log("Env",process.env.NODE_ENV)
+const connection_str = `${database_url}/${db}`
+console.log(connection_str)
+mongoose.connect(connection_str).then(m => console.log('DB connection initiated')).catch(e => console.log('DB connection error', e))
 
 const port = process?.env?.PORT || 1122
 app.listen(port, () => {
