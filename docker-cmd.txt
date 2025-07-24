@@ -185,7 +185,7 @@ Multi containered app runs inside the network
         Defaultly docker will create network and run all services same network
 
     cmd: 
-         docker-compose --version (verify istalled or not)
+         docker-compose --version (verify installed or not)
 
         1. docker-compose up ----> Running all cofigured service in docker-compose file
         2. docker-compose down ----> Stop all services
